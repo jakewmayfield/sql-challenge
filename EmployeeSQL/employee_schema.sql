@@ -1,20 +1,20 @@
 --- Remove constraints in order to be able to drop tables
-ALTER TABLE employee 
+ALTER TABLE IF EXISTS employee 
   DROP CONSTRAINT IF EXISTS fk_employee_emp_title_id;
 
-ALTER TABLE dept_manager 
+ALTER TABLE IF EXISTS dept_manager 
   DROP CONSTRAINT IF EXISTS fk_dept_manager_dept_no;
 
-ALTER TABLE dept_manager 
+ALTER TABLE IF EXISTS dept_manager 
   DROP CONSTRAINT IF EXISTS fk_dept_manager_emp_no;
  
-ALTER TABLE dept_emp 
+ALTER TABLE IF EXISTS dept_emp 
   DROP CONSTRAINT IF EXISTS fk_dept_emp_dept_no;
 
-ALTER TABLE dept_emp 
+ALTER TABLE IF EXISTS dept_emp 
   DROP CONSTRAINT IF EXISTS fk_dept_emp_emp_no;
 
-ALTER TABLE salaries 
+ALTER TABLE IF EXISTS salaries 
   DROP CONSTRAINT IF EXISTS fk_salaries_emp_no;
 
 --- drop tables next to test
@@ -92,4 +92,3 @@ REFERENCES "employee" ("emp_no");
 
 ALTER TABLE "employee" ADD CONSTRAINT "fk_employee_emp_title_id" FOREIGN KEY("emp_title_id")
 REFERENCES "titles" ("title_id");
-
